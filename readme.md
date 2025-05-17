@@ -1,32 +1,49 @@
 # TDSR
-This is a console-based screen reader.
+
+This is a fork of the popular console-based screen reader called tdsr.
 It has been tested under macOS, Linux and FreeBSD.
 It might also run on other \*nix systems, but this hasn't been tested.
+Compatibility is not guaranteed between versions.
 
-## What works
+### What works
+
 * Reading output
 * Reading by line, word and character
 * cursor keys (waits some amount of time and speaks)
 
-## Note
-Compatibility is not guaranteed between versions.
+### Changes since fork
+
+This is a fork and there have been some minor changes:
+
+* now installable via `pip` or `pipx`
+  * you no longer have to clone the repo, but you can if you want
+* config file now lives in `~/.config/tdsr/tdsr.cfg` (but we still respect the old location)
+* minor linting changes
+
 
 ## Requirements
+
 * Python 3
-* pyte
 * speech server
 
-## Installation on macOS
+### Requirements for development
+
+* [poetry](https://python-poetry.org/docs/#installation), which can be installed with `pipx install poetry`
+
+## Installation
+
+### macOS
+
 1. Install Python 3. If using [Homebrew](http://brew.sh/), `brew install python3`.
 2. Install [pipx](https://pipx.pypa.io/stable/installation/#installing-pipx). (we recommend pipx because it uses a python environment to install the code, so that you don't upset the balance of your system level pythong packages.) If using homebrew, you can install it with `brew install pipx`.
 3. `pipx install tdsr2`
 
-## Installation on Linux
+### Linux
 
 1. Install Python 3 and Speech Dispatcher.  They should be available from your package manager.
 You may also need to install Speech Dispatcher's Python bindings, if they were packaged separately by your distro.
 
-## Terminal setup
+### Terminal setup
 
 Open Terminal preferences, under Profiles check Use Option as Meta key.
 
