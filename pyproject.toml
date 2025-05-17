@@ -1,6 +1,6 @@
 [tool.poetry]
 name          = "tdsr2"
-version       = "0.1.0"
+version       = "0.1.1"
 description   = "a fork of Tyler Spivey's tdsr with some minor maintainability improvements from community members"
 authors       = ["Tyler Spivey <tspivey@pcdesk.net>"]
 maintainers   = ["jessebot <jessebot@linux.com>"]

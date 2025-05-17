@@ -346,10 +346,10 @@ def main():
 
 	if args.speech_server is None:
 		if platform.system() == 'Darwin':
-			speech_server = os.path.join(TDSR_DIR, 'mac')
+			speech_server = os.path.join(TDSR_DIR, 'mac.py')
 		else:
 			# Works on Linux, hopefully other places too:
-			speech_server = os.path.join(TDSR_DIR, 'speechdispatcher')
+			speech_server = os.path.join(TDSR_DIR, 'speechdispatcher.py')
 	else:
 		speech_server = shlex.split(args.speech_server)
 
