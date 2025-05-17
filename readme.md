@@ -127,10 +127,11 @@ If you hear "error loading plugin" followed by an error, you can launch tdsr in 
 And search the logs for "Error loading plugin" to see more details
 
 ## Repeating symbols
+
 Symbols you would like condensed down to "42 =" instead of "= = = =" you can specify under the speech section
 
 ```
-repeated_symbols_values = -_=! 
+repeated_symbols_values = -_=!
 ```
 
 ## License
@@ -148,3 +149,5 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+Changes after 2024 are from @stormdragon2976 and @jessebot.

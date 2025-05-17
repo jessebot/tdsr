@@ -1,31 +1,31 @@
 #!/usr/bin/env python3
-#tdsr, a terminal screen reader
-#Copyright (C) 2016, 2017  Tyler Spivey
-#See the license in COPYING.txt
-import importlib
-import sys
-import os
-import select
-import tty
-import fcntl
-import struct
-import termios
-import codecs
-import pyte
-from wcwidth import wcwidth
-from io import StringIO, SEEK_END
-import subprocess
-import time
-import configparser
-import re
+# tdsr, a terminal screen reader
+# Copyright (C) 2016, 2017  Tyler Spivey
+# See the license in LICENSE file
+
 import argparse
-import shlex
-import logging
-import platform
-import signal
+import codecs
+import configparser
 import copy
+import fcntl
+import importlib
+from io import StringIO, SEEK_END
+import logging
+import os
+import platform
+import pyte
 import re
+import select
 from setproctitle import setproctitle
+import shlex
+import signal
+import struct
+import subprocess
+import sys
+import termios
+import time
+import tty
+from wcwidth import wcwidth
 
 logger = logging.getLogger("tdsr")
 logger.addHandler(logging.NullHandler())
@@ -315,7 +315,7 @@ class Synth:
 	def set_voice_idx(self, voice_idx):
 		self.voice_idx = voice_idx
 		self.send('V%d\n' % voice_idx)
-		
+
 	def close(self):
 		self.pipe.stdin.close()
 		self.pipe.wait()
@@ -323,13 +323,23 @@ class Synth:
 state = State()
 speech_buffer = StringIO()
 lastkey = ""
+
 def main():
+    # setup old variable
+	try:
+		old = termios.tcgetattr(0)
+		tty.setraw(0)
+	finally:
+		termios.tcsetattr(0, termios.TCSADRAIN, old)
 	global CURSOR_TIMEOUT, signal_pipe
+
+    # argparser stuff
 	parser = argparse.ArgumentParser()
 	parser.add_argument('-s', '--speech-server', action='store', help='speech server command to run')
 	parser.add_argument('--debug', action='store_true')
 	parser.add_argument('program', action='store', nargs='*')
 	args = parser.parse_args()
+
 	if args.speech_server is None:
 		if platform.system() == 'Darwin':
 			speech_server = os.path.join(TDSR_DIR, 'mac')
@@ -338,6 +348,7 @@ def main():
 			speech_server = os.path.join(TDSR_DIR, 'speechdispatcher')
 	else:
 		speech_server = shlex.split(args.speech_server)
+
 	if args.debug:
 		logger.setLevel(logging.DEBUG)
 		formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -345,13 +356,16 @@ def main():
 		fh.setFormatter(formatter)
 		logger.addHandler(fh)
 		logger.debug("TDSR started")
+
 	rows, cols = get_terminal_size(0)
 	global synth, screen
 	synth = Synth(speech_server)
 	synth.start()
+
 	if os.path.exists(DEFAULT_CONFIG) and not os.path.exists(CONFIG_FILE):
 			state.config.read(DEFAULT_CONFIG)
 			state.save_config()
+
 	state.config.read(CONFIG_FILE)
 	state.symbols_re = state.build_symbols_re()
 	if 'rate' in state.config['speech']:
@@ -952,11 +966,8 @@ keymap = {
 if __name__ == '__main__':
 	try:
 		setproctitle('tdsr')
-	except:
+	except Exception as e:
+		print(e)
 		pass
-	try:
-		old = termios.tcgetattr(0)
-		tty.setraw(0)
-		main()
-	finally:
-		termios.tcsetattr(0, termios.TCSADRAIN, old)
+
+	main()
