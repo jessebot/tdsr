@@ -18,8 +18,8 @@ This is a fork and there have been some minor changes:
 * now installable via `pip` or `pipx`
   * you no longer have to clone the repo, but you can if you want
 * config file now lives in `~/.config/tdsr/tdsr.cfg` (but we still respect the old location)
-* minor linting changes
-
+* major linting changes to use spaces instead of tabs
+* adds a `TDSR_ACTIVE=true` env var setting
 
 ## Requirements
 
