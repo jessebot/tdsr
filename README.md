@@ -40,7 +40,7 @@ This is a fork and there have been some minor changes:
 
 ### Linux
 
-1. Install Python 3 and Speech Dispatcher.  They should be available from your package manager.
+1. Install Python 3 and Speech Dispatcher.  They should be available from your package manager. (on debian/ubuntu you can do `sudo apt install speech-dispatcher`)
 You may also need to install Speech Dispatcher's Python bindings, if they were packaged separately by your distro.
 
 ### Terminal setup
