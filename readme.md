@@ -17,22 +17,17 @@ Compatibility is not guaranteed between versions.
 
 ## Installation on macOS
 1. Install Python 3. If using [Homebrew](http://brew.sh/), `brew install python3`.
-1. Clone this repository.
-```git clone https://github.com/tspivey/tdsr.git```
-1. cd tdsr
-1. pip3 install -Ur requirements.txt
-1. Assuming the repository is in ```~/tdsr```, run:
-`~/tdsr/tdsr`
-and it should start speaking.
+2. Install pipx. If using homebrew, `brew install pipx`.
+3. `pipx install tdsr`
 
 ## Installation on Linux
 
 1. Install Python 3 and Speech Dispatcher.  They should be available from your package manager.
 You may also need to install Speech Dispatcher's Python bindings, if they were packaged separately by your distro.
-1. Follow the rest of the instructions for Mac OS X, starting with "Clone this repository".
 
 ## Terminal setup
 Open Terminal preferences, under Profiles check Use Option as Meta key.
+
 ## Keys
 (alt refers to the meta key.)
 * alt u, i, o - read previous, current, next line
@@ -56,7 +51,7 @@ Once in the config menu, you can use:
 * Enter - exit, saving the configuration.
 
 ## Symbols
-Symbols can be added in the configuration file (```~/.tdsr.cfg```),
+Symbols can be added in the configuration file (`~/.config/tdsr/tdsr.cfg`),
 under the symbols section.
 
 The format is:
@@ -78,7 +73,7 @@ def parse_output(lines):
 ```
 
 ### Config file
-In ~/.tdsr.cfg you add to the plugins and commands section to modify the shortcut and terminal command that has been run
+In `~/.config/tdsr/tdsr.cfg` you add to the plugins and commands section to modify the shortcut and terminal command that has been run
 
 Required: [plugins] The plugin section maps to a letter you press with alt to trigger the plugin.
 

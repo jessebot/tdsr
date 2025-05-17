@@ -32,7 +32,11 @@ logger.addHandler(logging.NullHandler())
 
 TDSR_DIR = os.path.abspath(os.path.dirname(os.path.realpath(__file__)))
 DEFAULT_CONFIG = os.path.join(TDSR_DIR, 'tdsr.cfg.dist')
+# start using XDG in the future, but if the file already exists in ~/.tdsr.cfg, respect it
 CONFIG_FILE = os.path.expanduser('~/.tdsr.cfg')
+if not os.path.exists(CONFIG_FILE):
+    CONFIG_FILE = os.path.expanduser('~/.config/tdsr/tdsr.cfg')
+
 CURSOR_TIMEOUT = 0.02
 REPEAT_KEY_TIMEOUT = 0.5
 PHONETICS = {x[0]: x for x in [
