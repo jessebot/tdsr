@@ -153,7 +153,18 @@ Symbols you would like condensed down to "42 =" instead of "= = = =" you can spe
 repeated_symbols_values = -_=!
 ```
 
-## License
+# Development
+
+If you would like to develop locally, follow these steps to test things:
+
+1. clone the repo: `git clone https://github.com/jessebot/tdsr.git`
+2. go into repo directory: `cd tdsr`
+3. install the local virtual env: `poetry install`
+4. get into a poetry environment. (I use poetry shell to get into the virtual env. this requires you to run `pipx inject poetry poetry-plugin-shell` to install the shell plugin for poetry.) If using poetry shell plugin, run `poetry shell`.
+
+From there you can run `tdsr` and it will pull your live developed version of the code as you change things. Please remember to bump the version in pyproject.toml if contributing back to this codebase, and then a github workflow will run when your pull request is merged to main to automatically release the new version that people can install with pipx.
+
+# License
 
 Copyright (C) 2016, 2017  Tyler Spivey
 
