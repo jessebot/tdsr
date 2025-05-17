@@ -335,6 +335,8 @@ def main():
         tty.setraw(0)
     finally:
         termios.tcsetattr(0, termios.TCSADRAIN, old)
+
+    os.environ["TSDR_ACTIVE"] = "true"
     global CURSOR_TIMEOUT, signal_pipe
 
     # argparser stuff
