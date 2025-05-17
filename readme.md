@@ -10,6 +10,7 @@ It might also run on other \*nix systems, but this hasn't been tested.
 
 ## Note
 Compatibility is not guaranteed between versions.
+
 ## Requirements
 * Python 3
 * pyte
@@ -17,8 +18,8 @@ Compatibility is not guaranteed between versions.
 
 ## Installation on macOS
 1. Install Python 3. If using [Homebrew](http://brew.sh/), `brew install python3`.
-2. Install pipx. If using homebrew, `brew install pipx`.
-3. `pipx install tdsr`
+2. Install [pipx](https://pipx.pypa.io/stable/installation/#installing-pipx). (we recommend pipx because it uses a python environment to install the code, so that you don't upset the balance of your system level pythong packages.) If using homebrew, you can install it with `brew install pipx`.
+3. `pipx install tdsr2`
 
 ## Installation on Linux
 
@@ -26,9 +27,11 @@ Compatibility is not guaranteed between versions.
 You may also need to install Speech Dispatcher's Python bindings, if they were packaged separately by your distro.
 
 ## Terminal setup
+
 Open Terminal preferences, under Profiles check Use Option as Meta key.
 
 ## Keys
+
 (alt refers to the meta key.)
 * alt u, i, o - read previous, current, next line
 * alt j, k, l - read previous, current, next word
@@ -41,6 +44,7 @@ Open Terminal preferences, under Profiles check Use Option as Meta key.
 * alt v - copy mode. Press l to copy the line the review cursor is on, or s to copy the screen.
 
 ## Configuration
+
 Once in the config menu, you can use:
 * r - set rate.
 * v - set volume (value between 0 and 100).
@@ -51,6 +55,7 @@ Once in the config menu, you can use:
 * Enter - exit, saving the configuration.
 
 ## Symbols
+
 Symbols can be added in the configuration file (`~/.config/tdsr/tdsr.cfg`),
 under the symbols section.
 
@@ -61,6 +66,7 @@ character code = name
 Because of how the config system works, it's best to do this with one TDSR open, then exit and re-launch to see the changes.
 
 ## Plugins
+
 Custom key binds and handlers can be added via the plugins and commands section of the config files
 and a python module in the plugins directory that exports the following method signature:
 
@@ -73,7 +79,8 @@ def parse_output(lines):
 ```
 
 ### Config file
-In `~/.config/tdsr/tdsr.cfg` you add to the plugins and commands section to modify the shortcut and terminal command that has been run
+
+The config file lives in `~/.config/tdsr/tdsr.cfg`, but if you still have a file at `~/.tdsr.cfg`, we will respect it and ignore the previous path. In the config file you add to the plugins and commands section to modify the shortcut and terminal command that has been run.
 
 Required: [plugins] The plugin section maps to a letter you press with alt to trigger the plugin.
 
@@ -130,6 +137,7 @@ repeated_symbols_values = -_=!
 ```
 
 ## License
+
 Copyright (C) 2016, 2017  Tyler Spivey
 
 This program is free software: you can redistribute it and/or modify
