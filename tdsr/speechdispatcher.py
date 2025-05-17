@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-#Copyright (C) 2016, 2017  Tyler Spivey
-#See the license in COPYING.txt
+
+# Copyright (C) 2016, 2017  Tyler Spivey
+# See the license in LICENSE
+
 import io
-import sys
 import speechd.client
+import sys
 
 def check_range(synth, value, low, high, name):
 	if value >= low and value <= high:

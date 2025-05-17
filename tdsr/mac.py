@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
-#Copyright (C) 2016, 2017  Tyler Spivey
-#See the license in COPYING.txt
+
+# Copyright (C) 2016, 2017  Tyler Spivey
+# See the license in LICENSE
+
+import objc
 from Foundation import (
 	NSObject, NSFileHandle, NSNotificationCenter,
 	NSFileHandleReadCompletionNotification, NSFileHandleNotificationDataItem,
@@ -115,4 +118,4 @@ def main():
 
 if __name__ == '__main__':
 	main()
-	
+
