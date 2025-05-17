@@ -1,6 +1,6 @@
 [tool.poetry]
 name          = "tdsr2"
-version       = "0.1.4"
+version       = "0.1.5"
 description   = "a fork of Tyler Spivey's tdsr with some minor maintainability improvements from community members"
 authors       = ["Tyler Spivey <tspivey@pcdesk.net>"]
 maintainers   = ["jessebot <jessebot@linux.com>"]
@@ -28,9 +28,11 @@ pre-commit = "^4.0"
 
 [tool.poetry.plugins."tdsr.application.plugin"]
 "tdsr" = "tdsr:main"
+"tdsr-mac" = "tdsr:mac.main"
 
 [tool.poetry.scripts]
 tdsr = 'tdsr:main'
+tdsr-mac = "tdsr:mac.main"
 
 [tool.poetry.urls]
 "Bug Tracker" = "http://github.com/jessebot/tdsr/issues"
