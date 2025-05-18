@@ -1,3 +1,4 @@
 gsed -i 's/tdsr2/tdsr-mac/g' pyproject.toml
-poetry publish --build
+poetry lock
+poetry publish --build --extras macos
 git checkout pyprojec.toml
